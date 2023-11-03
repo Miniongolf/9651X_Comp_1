@@ -23,8 +23,8 @@ extern pros::MotorGroup rightMotors; // Right side drivetrain motor group
 
 extern pros::Motor cataMotor; // Catapult motor
 
-extern Chassis chassis;
-extern Wings wings;
+extern Wings wings; // Wings wrapper
+extern Chassis chassis; // Chassis wrapper
 
 // PNEUMATICS
 extern pros::ADIDigitalOut leftWing; // Pneumatics for left wing

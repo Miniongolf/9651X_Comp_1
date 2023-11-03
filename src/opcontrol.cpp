@@ -14,7 +14,6 @@
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Task inputs_task(inputs_task_fn, NULL, "Gamepad Input Task");
     pros::lcd::print(1, "opmode");
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;
@@ -22,6 +21,7 @@ void opcontrol() {
 	bool usingAccel = false;
 
 	while (true) {
+		gamepad1.getInputs();
 		leftVel = gamepad1.leftY + gamepad1.rightX*TURN_CONST;
 		rightVel = gamepad1.leftY - gamepad1.rightX*TURN_CONST;
 		
@@ -43,11 +43,4 @@ void opcontrol() {
 
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
 	}
-}
-
-// Task to continuously take inputs during opmode
-void inputs_task_fn(void* params) {
-	gamepad1.getInputs();
-	gamepad2.getInputs();
-	pros::delay(20);
 }

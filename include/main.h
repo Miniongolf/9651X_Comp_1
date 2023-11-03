@@ -81,6 +81,7 @@ void opcontrol(void);
 #include "subHeads/gamepad.hpp"
 #include "subHeads/globals.hpp"
 #include "subHeads/odometry.hpp"
+#include "subHeads/pid.hpp"
 #include "subHeads/wings.hpp"
 
 #endif

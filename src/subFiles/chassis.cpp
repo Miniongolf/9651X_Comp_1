@@ -1,4 +1,5 @@
 #include "main.h"
+#include "chassis.hpp"
 
 Chassis::Chassis() {}
 
@@ -9,7 +10,6 @@ void Chassis::drive(double leftPower, double rightPower, int runtime, bool stops
     if (stops) {brake();} 
 }
 
-/*
 // Drives a set distance away (in inches) using kP, tolerance of 1
 void Chassis::driveDistance(double targetDist, double kP, bool stops) {
     double error = targetDist, currDist = 0, targetVel;
@@ -21,11 +21,11 @@ void Chassis::driveDistance(double targetDist, double kP, bool stops) {
         leftPositions = leftMotors.get_positions();
         rightPositions = rightMotors.get_positions();
 
-        for (int i = 0; i < motorCount; i++) {
+        for (int i = 0; i < NUM_OF_MOTORS; i++) {
             avgPosition += leftPositions[i];
             avgPosition += rightPositions[i];
         }
-        avgPosition /= (motorCount * 2);
+        avgPosition /= (NUM_OF_MOTORS * 2);
 
         currDist = (avgPosition / TICKS_PER_REVOLUTION) * WHEEL_CIRCUMFERENCE * GEAR_RATIO;
 
@@ -35,7 +35,6 @@ void Chassis::driveDistance(double targetDist, double kP, bool stops) {
         targetVel = std::clamp(targetVel, -1.0, 1.0);
     }
 }
-*/
 
 void Chassis::turnAngle(double targetAngle, bool stops) {
 
