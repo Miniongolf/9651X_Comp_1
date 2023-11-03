@@ -2,7 +2,7 @@
 
 Chassis::Chassis() {}
 
-void Chassis::drive(double leftPower, double rightPower, int runtime, bool stops) {
+void Chassis::setPowers(double leftPower, double rightPower, int runtime, bool stops) {
     leftMotors.move(leftPower*127);
     rightMotors.move(rightPower*127);
     pros::delay(runtime);
@@ -12,14 +12,17 @@ void Chassis::drive(double leftPower, double rightPower, int runtime, bool stops
 // Drives a set distance away (in inches) using kP, tolerance of 1
 void Chassis::driveDistance(double targetDist, double kP, bool stops) {
     Odometry tempOdom;
-    double error, currDist = 0, targetVel;
+    double error = targetDist, currDist = 0, targetVel;
     
-    currDist = tempOdom.getLocalDistance();
-    
-    error = targetVel - currDist;
+    while (fabs(error) > 0.5) {
+        currDist = tempOdom.getLocalDistance();
+        error = targetDist - currDist;
+        targetVel = kP * (error - currDist);
+        targetVel = std::clamp(targetVel, -1.0, 1.0);
+        chassis.setPowers(targetVel, targetVel);
+    }
 
-    targetVel = kP * (error - currDist);
-    targetVel = std::clamp(targetVel, -1.0, 1.0);
+    if (stops) {brake();}
 }
 
 void Chassis::turnAngle(double targetAngle, bool stops) {
