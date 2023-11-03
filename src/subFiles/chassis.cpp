@@ -12,28 +12,15 @@ void Chassis::drive(double leftPower, double rightPower, int runtime, bool stops
 
 // Drives a set distance away (in inches) using kP, tolerance of 1
 void Chassis::driveDistance(double targetDist, double kP, bool stops) {
-    double error = targetDist, currDist = 0, targetVel;
-    std::vector<double> leftPositions, rightPositions;
-    double avgPosition;
-    leftMotors.tare_position();
-    rightMotors.tare_position();
-    while (fabs(error) > 1) {
-        leftPositions = leftMotors.get_positions();
-        rightPositions = rightMotors.get_positions();
+    Odometry tempOdom;
+    double error, currDist = 0, targetVel;
+    
+    currDist = tempOdom.getLocalDistance();
+    
+    error = targetVel - currDist;
 
-        for (int i = 0; i < NUM_OF_MOTORS; i++) {
-            avgPosition += leftPositions[i];
-            avgPosition += rightPositions[i];
-        }
-        avgPosition /= (NUM_OF_MOTORS * 2);
-
-        currDist = (avgPosition / TICKS_PER_REVOLUTION) * WHEEL_CIRCUMFERENCE * GEAR_RATIO;
-
-        error = targetDist - currDist;
-
-        targetVel = kP * (error - currDist);
-        targetVel = std::clamp(targetVel, -1.0, 1.0);
-    }
+    targetVel = kP * (error - currDist);
+    targetVel = std::clamp(targetVel, -1.0, 1.0);
 }
 
 void Chassis::turnAngle(double targetAngle, bool stops) {

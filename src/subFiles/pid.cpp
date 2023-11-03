@@ -48,7 +48,7 @@ double PID::calculate(double errorIn) {
 double PID::calculateLinearKP(double errorIn) {
     double error = errorIn, currDist = 0, targetVel;
 
-    targetVel = kP * (error - currDist);
+    targetVel = kP * (error);
     targetVel = std::clamp(targetVel, -1.0, 1.0);
 
     return targetVel;

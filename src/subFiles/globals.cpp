@@ -11,7 +11,7 @@ pros::MotorGroup rightMotors({right1, right2});
 
 pros::Motor cataMotor(CATA_PORT, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_DEGREES);
 
-Wings wings;
+// Wings wings;
 Chassis chassis;
 
 // PNEUMATICS
