@@ -36,6 +36,10 @@ class Controller {
 	 * 			  The ID of the controller (e.g. the master or partner controller).
 	 * 			  Must be one of CONTROLLER_MASTER or CONTROLLER_PARTNER
 	 */
+	
+	/** NOTE: I (Nicholas 9651X) added this myself so feel free to delete if it breaks anything*/
+	// Controller();
+
 	Controller(controller_id_e_t id);
 
 	/**
