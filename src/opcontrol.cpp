@@ -41,6 +41,10 @@ void opcontrol() {
 
 		chassis.drive(leftVel, rightVel);
 
+		if (gamepad1.a.pressed) {
+			autonomous();
+		}
+
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
 	}
 }
