@@ -41,7 +41,7 @@ void opcontrol() {
 
 		std::cout << leftVel << ' ' << rightVel << '\n';
 
-		// chassis.setPowers(leftVel, rightVel);
+		chassis.setPowers(leftVel, rightVel);
 
 		if (gamepad1.a.pressed) {
 			autonomous();

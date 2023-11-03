@@ -2,11 +2,9 @@
 
 Chassis::Chassis() {}
 
-void Chassis::setPowers(double leftPower, double rightPower, int runtime, bool stops) {
+void Chassis::setPowers(double leftPower, double rightPower) {
     leftMotors.move(leftPower*127);
     rightMotors.move(rightPower*127);
-    pros::delay(runtime);
-    if (stops) {brake();} 
 }
 
 // Drives a set distance away (in inches) using kP, tolerance of 1

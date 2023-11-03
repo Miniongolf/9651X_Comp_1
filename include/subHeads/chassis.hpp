@@ -5,7 +5,7 @@ class Chassis {
         // Odometry odomSys;
     public:
         Chassis();
-        void setPowers(double leftPower, double rightPower, int runtime = 0, bool stops = true);
+        void setPowers(double leftPower, double rightPower);
         void driveDistance(double targetDist, double kP, bool stops = true);
         void turnAngle(double targetAngle, bool stops = true);
         void brake();
