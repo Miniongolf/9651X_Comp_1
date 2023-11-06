@@ -32,8 +32,8 @@ std::array<double, 2> Odometry::getEncoderTicks() {
     }
     std::cout << '\n';
 
-    leftAvgPos /= (NUM_OF_MOTORS*2);
-    rightAvgPos /= (NUM_OF_MOTORS*2);
+    leftAvgPos /= (NUM_OF_MOTORS);
+    rightAvgPos /= (NUM_OF_MOTORS);
 
     return {leftAvgPos, rightAvgPos};
 }
