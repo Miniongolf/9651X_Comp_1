@@ -75,14 +75,16 @@ void opcontrol(void);
 
 #include <cmath>
 
-#include "subHeads/button.hpp"
-#include "subHeads/cata.hpp"
-#include "subHeads/chassis.hpp"
-#include "subHeads/gamepad.hpp"
-#include "subHeads/odometry.hpp"
-#include "subHeads/pid.hpp"
 #include "subHeads/robotPosition.hpp"
+#include "subHeads/pid.hpp"
+#include "subHeads/odometry.hpp"
+
+#include "subHeads/button.hpp"
+#include "subHeads/gamepad.hpp"
+
+#include "subHeads/cata.hpp"
 #include "subHeads/wings.hpp"
+#include "subHeads/chassis.hpp"
 
 #include "subHeads/globals.hpp"
 
