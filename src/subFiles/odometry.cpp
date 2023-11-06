@@ -3,13 +3,6 @@
 // Odometry class constructor (no args)
 Odometry::Odometry() {}
 
-// Robot Position class constructor (x, y, angle)
-RobotPosition::RobotPosition(double xIn, double yIn, double angleIn) {
-    x = xIn;
-    y = yIn;
-    angle = angleIn;
-}
-
 // Reset the encoder ticks to 0
 void Odometry::resetEncoderPos() {
     leftMotors.tare_position();
