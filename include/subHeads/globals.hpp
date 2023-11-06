@@ -6,11 +6,14 @@
 #define RIGHT_1_PORT 3
 #define RIGHT_2_PORT 4
 
-#define CATA_PORT 10
+#define CATA_PORT 5
 
 // PNEUMATICS PORTS
 #define LEFT_WING_PORT 'A' // Pneumatics port for left wing
 #define RIGHT_WING_PORT 'B' // Pneumatics port for right wing
+
+// SENSOR PORTS
+#define IMU_PORT 6
 
 // MOTORS
 extern pros::Motor left1;
@@ -30,8 +33,14 @@ extern Chassis chassis; // Chassis wrapper
 extern pros::ADIDigitalOut leftWing; // Pneumatics for left wing
 extern pros::ADIDigitalOut rightWing; // Pneumatics for right wing
 
-// VISION SENSOR
+// SENSORS
+
+extern pros::IMU imu; // Inertial Measurement Unit
+
 // extern pros::Vision  
+
+// ODOMETRY
+extern Odometry odomSys; // Odometry system
 
 // MISC
 extern Gamepad gamepad1; // Primary controller

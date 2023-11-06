@@ -11,8 +11,10 @@ pros::MotorGroup rightMotors({right1, right2});
 
 pros::Motor cataMotor(CATA_PORT, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_DEGREES);
 
-// Wings wings;
+// SUBSYSTEMS
+Wings wings;
 Chassis chassis;
+Odometry odomSys;
 
 // PNEUMATICS
 pros::ADIDigitalOut leftwing(LEFT_WING_PORT);
