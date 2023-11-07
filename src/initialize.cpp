@@ -7,9 +7,18 @@
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
+    // Initialize brain screen display
     pros::lcd::initialize();
-    leftMotors.tare_position();
-    rightMotors.tare_position();
+
+    // Initialize IMU
+    imu.reset();
+
+    // Reset chassis motor encoder positions
+    odomSys.resetEncoderPos();
+    
+    // Reset catapult encoder position
     cataMotor.tare_position();
-    // wings.setPosition(-1, -1);
+    
+    // Tuck in wings
+    wings.setPosition(-1, -1);
 }

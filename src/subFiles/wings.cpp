@@ -7,18 +7,18 @@ std::array<bool, 2> Wings::getStatus() {
 }
 
 void Wings::setPosition(int leftPos, int rightPos) {
-    if (leftPos == 1 && !leftIsExtended) {
+    if (leftPos == 1) {
         leftWing.set_value(true);
         leftIsExtended = true;
-    } else if (leftPos == -1 && leftIsExtended) {
+    } else if (leftPos == -1) {
         leftWing.set_value(false);
         leftIsExtended = false;
     }
     
-    if (rightPos == 1 && !rightIsExtended) {
+    if (rightPos == 1) {
         rightWing.set_value(true);
         rightIsExtended = true;
-    } else if (rightPos == -1 && rightIsExtended) {
+    } else if (rightPos == -1) {
         rightWing.set_value(false);
         rightIsExtended = false;
     } 
