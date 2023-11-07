@@ -20,8 +20,8 @@ Odometry odomSys;
 pros::IMU imu(IMU_PORT);
 
 // PNEUMATICS
-pros::ADIDigitalOut leftwing(LEFT_WING_PORT);
-pros::ADIDigitalOut rightwing(RIGHT_WING_PORT);
+pros::ADIDigitalOut leftWing(LEFT_WING_PORT);
+pros::ADIDigitalOut rightWing(RIGHT_WING_PORT);
 
 // MISC
 Gamepad gamepad1(pros::E_CONTROLLER_MASTER);
