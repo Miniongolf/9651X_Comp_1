@@ -17,7 +17,7 @@ Chassis chassis;
 Odometry odomSys;
 
 // SENSORS
-pros::IMU imu;
+pros::IMU imu(IMU_PORT);
 
 // PNEUMATICS
 pros::ADIDigitalOut leftwing(LEFT_WING_PORT);
