@@ -10,11 +10,8 @@ void initialize() {
     // Initialize brain screen display
     pros::lcd::initialize();
 
-    // Initialize IMU
-    imu.reset();
-
-    // Reset chassis motor encoder positions
-    odomSys.resetEncoderPos();
+    // Initialize odometry
+    odomSys.init();
     
     // Reset catapult encoder position
     cataMotor.tare_position();

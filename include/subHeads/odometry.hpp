@@ -5,6 +5,7 @@ class Odometry {
         double currDist = 0;
     public:
         Odometry();
+        void init();
         void resetEncoderPos();
         std::array<double, 2> getEncoderTicks();
         double getLocalDistance(std::array<double, 2> startPoses);

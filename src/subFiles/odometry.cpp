@@ -1,7 +1,14 @@
 #include "main.h"
 
-// Odometry class constructor (no args)
+// Odometry class constructor
 Odometry::Odometry() {}
+
+// Initializes the odometry system
+void Odometry::init() {
+    imu.reset();
+    leftMotors.tare_position();
+    rightMotors.tare_position();
+}
 
 // Reset the encoder ticks to 0
 void Odometry::resetEncoderPos() {
