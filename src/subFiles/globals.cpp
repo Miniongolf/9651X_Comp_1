@@ -16,6 +16,9 @@ Wings wings;
 Chassis chassis;
 Odometry odomSys;
 
+// SENSORS
+pros::IMU imu;
+
 // PNEUMATICS
 pros::ADIDigitalOut leftwing(LEFT_WING_PORT);
 pros::ADIDigitalOut rightwing(RIGHT_WING_PORT);
