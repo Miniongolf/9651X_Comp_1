@@ -1,5 +1,10 @@
 #include "main.h"
 
+void my_task_fn(void* param) {
+  std::cout << "Hello" << (char*)param;
+  // ...
+}
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -23,7 +28,3 @@ void initialize() {
                 TASK_STACK_DEPTH_DEFAULT, "My Task");
 }
 
-void my_task_fn(void* param) {
-  std::cout << "Hello" << (char*)param;
-  // ...
-}
