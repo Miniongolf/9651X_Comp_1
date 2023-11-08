@@ -8,8 +8,9 @@ void Gamepad::getInputs() {
     pros::Controller controller(controllerID);
 
     // Get the input value for the stick axes
-    for (int i = 0; i < 4; i++) {
-        *ptrSticksArr[i] = controller.get_analog(numToStick[i])/127.0;
+    for (int i = 0; i <= 3; i++) {
+        pros::controller_analog_e_t stick = static_cast<pros::controller_analog_e_t>(i);
+        *ptrSticksArr[i] = controller.get_analog(stick)/127.0;
         *ptrSticksArr[i] = *ptrSticksArr[i];
 
         // Cross deadzone
@@ -17,7 +18,8 @@ void Gamepad::getInputs() {
     }
 
     // Get the status for the buttons
-    for (int i = 0; i < 12; i++) {
-        (*ptrButtonsArr[i]).setStatus(controller.get_digital(numToButton[i]));
+    for (int i = 6; i <= 17; i++) {
+        pros::controller_digital_e_t button = static_cast<pros::controller_digital_e_t>(i);
+        (*ptrButtonsArr[i]).setStatus(controller.get_digital(button));
     }
 }

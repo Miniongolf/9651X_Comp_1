@@ -20,21 +20,31 @@ void opcontrol() {
 
 	bool usingAccel = false;
 
+	enum speed_modes {
+		fast = 0,
+		precision
+	};
+
+	speed_modes speedMode;
+
 	while (true) {
 		gamepad1.getInputs();
+
+		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
+
 		leftVel = gamepad1.leftY + gamepad1.rightX*TURN_CONST;
 		rightVel = gamepad1.leftY - gamepad1.rightX*TURN_CONST;
 		
-		highVel = fabs(std::max(fabs(leftVel), fabs(rightVel)));
+		highVel = std::max(fabs(leftVel), fabs(rightVel));
 		
 		// Normalize to [-1, 1]
-		if (highVel > 1 || gamepad1.rb.held) {
+		if (highVel > 1 || speedMode == precision) {
 			leftVel /= highVel;
 			rightVel /= highVel;
 		}
 
-		// Slow down the chassis to half speed
-		if (gamepad1.rb.held) {
+		// Slow down the chassis to half speed if drive is on precision mode
+		if (speedMode == precision) {
 			leftVel /= 2;
 			rightVel /= 2;
 		}

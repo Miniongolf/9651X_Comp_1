@@ -49,9 +49,11 @@ extern Gamepad gamepad2; // Secondary controller
 // CONSTANTS
 #define NUM_OF_MOTORS 2 // Number of motors per side of chassis
 #define M_PI 3.14159265358979323846 // Literally just pi
-#define TURN_CONST 0.75 // Turning speed multiplier
+// #define TURN_CONST 0.75 // Turning speed multiplier
 #define CONTROLLER_DEADZONE 0.1 // Controller deadzone (cross)
 #define TICKS_PER_REVOLUTION 360 // Number of encoder ticks per full motor revolution
 #define WHEEL_DIAMETER 3.25 // Wheel diameter in inches
 #define WHEEL_CIRCUMFERENCE (M_PI * WHEEL_DIAMETER) // Wheel circumference in inches
 #define GEAR_RATIO 0.667 // Motor to wheel gear ratio
+
+extern const double TURN_CONST;

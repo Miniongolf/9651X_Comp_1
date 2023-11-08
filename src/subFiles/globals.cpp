@@ -24,5 +24,8 @@ pros::ADIDigitalOut leftWing(LEFT_WING_PORT);
 pros::ADIDigitalOut rightWing(RIGHT_WING_PORT);
 
 // MISC
-Gamepad gamepad1(pros::E_CONTROLLER_MASTER);
-Gamepad gamepad2(pros::E_CONTROLLER_PARTNER);
+Gamepad gamepad1(CONTROLLER_MASTER);
+Gamepad gamepad2(CONTROLLER_PARTNER);
+
+// CONSTANTS
+const double TURN_CONST = 0.75;
