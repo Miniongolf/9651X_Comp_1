@@ -24,18 +24,18 @@ void Chassis::driveDistance(double targetDist, double kP, bool stops) {
     if (stops) {brake();}
 }
 
-void Chassis::turnToAngle(double targetAngle, bool stops) {
+void Chassis::turnToHeading(double targetAngle, bool stops) {
     double error, currAngle;
 
     while (error > 5) {
-        currAngle = odomSys.getGlobalAngle();
+        currAngle = odomSys.getHeading();
         error = targetAngle - currAngle;
     }
 }
 
 
 void Chassis::turnRelativeAngle(double targetAngle, bool stops) {
-    Odometry tempOdom;
+    
 
 
 }

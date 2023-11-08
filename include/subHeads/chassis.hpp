@@ -18,7 +18,7 @@ class Chassis {
 
         // Turns a specific angle using imu
         // Angle in degrees
-        void turnToAngle(double targetAngle, bool stops = true);
+        void turnToHeading(double targetAngle, bool stops = true);
 
         void turnRelativeAngle(double targetAngle, bool stops = true);
         

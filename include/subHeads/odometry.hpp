@@ -9,6 +9,6 @@ class Odometry {
         void resetEncoderPos();
         std::array<double, 2> getEncoderTicks();
         double getLocalDistance(std::array<double, 2> startPoses);
-        double getGlobalAngle();
+        double getHeading();
         void setCurrDist(double distIn);
 };

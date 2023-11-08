@@ -53,7 +53,7 @@ double Odometry::getLocalDistance(std::array<double, 2> startPoses) {
 }
 
 // Get global imu angle
-double Odometry::getGlobalAngle() {
+double Odometry::getHeading() {
     return imu.get_yaw();
 }
 
