@@ -18,4 +18,12 @@ void initialize() {
     
     // Tuck in wings
     wings.setPosition(-1, -1);
+
+    pros::Task my_task (my_task_fn, (void*)"PROS", TASK_PRIORITY_DEFAULT,
+                TASK_STACK_DEPTH_DEFAULT, "My Task");
+}
+
+void my_task_fn(void* param) {
+  std::cout << "Hello" << (char*)param;
+  // ...
 }
