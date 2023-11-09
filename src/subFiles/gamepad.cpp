@@ -22,4 +22,6 @@ void Gamepad::getInputs() {
         pros::controller_digital_e_t button = static_cast<pros::controller_digital_e_t>(i);
         (*ptrButtonsArr[i]).setStatus(controller.get_digital(button));
     }
+
+    std::cout << gamepad1.leftY << '\n';
 }
