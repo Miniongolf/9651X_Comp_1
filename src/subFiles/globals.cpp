@@ -28,4 +28,14 @@ Gamepad gamepad1(CONTROLLER_MASTER);
 Gamepad gamepad2(CONTROLLER_PARTNER);
 
 // CONSTANTS
-const double TURN_CONST = 0.75;
+
+const double M_PI = 3.14159265358979323846;
+
+const int    NUM_OF_MOTORS          = 2;
+const int    TICKS_PER_REVOLUTION   = 360;
+const double WHEEL_DIAMETER         = 3.25;
+const double WHEEL_CIRCUMFERENCE    = M_PI * WHEEL_DIAMETER;
+const double GEAR_RATIO             = 0.667;
+
+const double TURN_CONST             = 0.75;
+const double CONTROLLER_DEADZONE    = 0.1;

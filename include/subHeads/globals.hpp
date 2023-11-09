@@ -47,13 +47,23 @@ extern Gamepad gamepad1; // Primary controller
 extern Gamepad gamepad2; // Secondary controller
 
 // CONSTANTS
+/*
 #define NUM_OF_MOTORS 2 // Number of motors per side of chassis
 #define M_PI 3.14159265358979323846 // Literally just pi
-// #define TURN_CONST 0.75 // Turning speed multiplier
+#define TURN_CONST 0.75 // Turning speed multiplier
 #define CONTROLLER_DEADZONE 0.1 // Controller deadzone (cross)
 #define TICKS_PER_REVOLUTION 360 // Number of encoder ticks per full motor revolution
 #define WHEEL_DIAMETER 3.25 // Wheel diameter in inches
 #define WHEEL_CIRCUMFERENCE (M_PI * WHEEL_DIAMETER) // Wheel circumference in inches
 #define GEAR_RATIO 0.667 // Motor to wheel gear ratio
+*/
 
-extern const double TURN_CONST;
+extern const double M_PI; // Literally just pi
+
+extern const int    NUM_OF_MOTORS;          // Number of motors per side of chassis
+extern const double TURN_CONST;             // Turning speed multiplier
+extern const double CONTROLLER_DEADZONE;    // Controller deadzone (cross)
+extern const int    TICKS_PER_REVOLUTION;      // Number of encoder ticks per full motor revolution
+extern const double WHEEL_DIAMETER;         // Wheel diameter (inches)
+extern const double WHEEL_CIRCUMFERENCE;    // Wheel circumference (inches)
+extern const double GEAR_RATIO;             // Wheel to motor gear ratio
