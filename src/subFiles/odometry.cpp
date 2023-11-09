@@ -5,7 +5,7 @@ Odometry::Odometry() {}
 
 // Initializes the odometry system
 void Odometry::init() {
-    imu.reset();
+    // imu.reset();
     leftMotors.tare_position();
     rightMotors.tare_position();
 }
@@ -54,7 +54,8 @@ double Odometry::getLocalDistance(std::array<double, 2> startPoses) {
 
 // Get global imu angle
 double Odometry::getHeading() {
-    return imu.get_yaw();
+    // return imu.get_yaw();
+    return 0;
 }
 
 // Set the odometry's current registered distance
