@@ -58,7 +58,7 @@ extern Gamepad gamepad2; // Secondary controller
 #define GEAR_RATIO 0.667 // Motor to wheel gear ratio
 */
 
-extern const double M_PI; // Literally just pi
+#define M_PI 3.14159265358979323846; // Literally just pi
 
 extern const int    NUM_OF_MOTORS;          // Number of motors per side of chassis
 extern const double TURN_CONST;             // Turning speed multiplier
