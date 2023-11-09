@@ -14,6 +14,7 @@
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+	pros::Task inputs_task(inputs_task_fn, NULL, "Gamepad Input Task");
     pros::lcd::print(1, "opmode");
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;
