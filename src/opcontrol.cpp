@@ -28,7 +28,7 @@ void opcontrol() {
 	speed_modes speedMode;
 
 	while (true) {
-		gamepad1.getInputs();
+		// gamepad1.getInputs();
 
 		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
 
