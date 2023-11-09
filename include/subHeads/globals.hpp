@@ -1,19 +1,21 @@
 #include "main.h"
 
 // MOTOR PORTS
-#define LEFT_1_PORT 1
-#define LEFT_2_PORT 2
-#define RIGHT_1_PORT 3
-#define RIGHT_2_PORT 4
+#define LEFT_1_PORT -3
+#define LEFT_2_PORT 4
+#define RIGHT_1_PORT 1
+#define RIGHT_2_PORT -2
 
-#define CATA_PORT 5
+#define CATA_PORT 6
+
+#define BLOCKER_PORT 5
 
 // PNEUMATICS PORTS
 #define LEFT_WING_PORT 'A' // Pneumatics port for left wing
 #define RIGHT_WING_PORT 'B' // Pneumatics port for right wing
 
 // SENSOR PORTS
-#define IMU_PORT 6
+// #define IMU_PORT 6
 
 // MOTORS
 extern pros::Motor left1;
@@ -25,6 +27,8 @@ extern pros::Motor right2;
 extern pros::MotorGroup rightMotors; // Right side drivetrain motor group
 
 extern pros::Motor cataMotor; // Catapult motor
+
+extern pros::Motor blockerMotor; // Blocker motor
 
 extern Wings wings; // Wings wrapper
 extern Chassis chassis; // Chassis wrapper

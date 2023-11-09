@@ -57,6 +57,12 @@ void opcontrol() {
 			autonomous();
 		}
 
+		if (gamepad1.dpadUp.held) {
+			blockerMotor.move(-127);
+		} else if (gamepad1.dpadDown.held) {
+			blockerMotor.move(127);
+		}
+
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
 	}
 }
