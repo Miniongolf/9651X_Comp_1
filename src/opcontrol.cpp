@@ -14,7 +14,7 @@
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	// pros::Task inputs_task(inputs_task_fn, NULL, "Gamepad Input Task");
+	pros::Task inputs_task(inputs_task_fn, NULL, "Gamepad Input Task");
     pros::lcd::print(1, "opmode");
 
 	double leftVel, rightVel, highVel;
@@ -30,7 +30,7 @@ void opcontrol() {
 	speed_modes speedMode;
 
 	while (true) {
-		gamepad1.getInputs();
+		// gamepad1.getInputs();
 
 		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
 
