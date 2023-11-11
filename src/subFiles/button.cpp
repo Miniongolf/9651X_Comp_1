@@ -7,35 +7,35 @@ Button::Button() {}
 void Button::setStatus(bool isPressed) {
     currState = isPressed;
     
-    // Button pressed
+    // Rising edge detection
     if (!prevState && currState) {
         pressed = true;
         held = true;
         released = false;
     }
     
-    // Button held down
+    // Sustained
     else if (prevState && currState) {
         pressed = false;
         held = true;
         released = false;
     }
     
-    // Button released
+    // Falling edge detection
     else if (prevState && !currState) {
         pressed = false;
         held = false;
         released = true;
     }
     
-    // Button not held down
+    // Released
     else {
         pressed = false;
         held = false;
         released = false;
     }
 
-    // Update prevState for next run
+    // Update for next iteration
     prevState = currState;
 }
 

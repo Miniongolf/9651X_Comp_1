@@ -34,8 +34,8 @@ void opcontrol() {
 
 		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
 
-		leftVel = gamepad1.leftY + gamepad1.rightX*TURN_CONST;
-		rightVel = gamepad1.leftY - gamepad1.rightX*TURN_CONST;
+		leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
+		rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
 		
 		highVel = std::max(fabs(leftVel), fabs(rightVel));
 		

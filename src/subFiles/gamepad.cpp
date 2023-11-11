@@ -8,7 +8,7 @@ void Gamepad::getInputs() {
     pros::Controller controller(controllerID);
 
     // Get the input value for the stick axes
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i < 4; i++) {
         pros::controller_analog_e_t stick = static_cast<pros::controller_analog_e_t>(i);
         *ptrSticksArr[i] = controller.get_analog(stick)/127.0;
         *ptrSticksArr[i] = *ptrSticksArr[i];
@@ -18,10 +18,11 @@ void Gamepad::getInputs() {
     }
 
     // Get the status for the buttons
-    for (int i = 6; i <= 17; i++) {
-        pros::controller_digital_e_t button = static_cast<pros::controller_digital_e_t>(i);
+    for (int i = 0; i < 12; i++) {
+        /** NOTE: add 6 to i to match the pros::controller_digital_e_t enum in misc.h */
+        pros::controller_digital_e_t button = static_cast<pros::controller_digital_e_t>(i+6);
         (*ptrButtonsArr[i]).setStatus(controller.get_digital(button));
     }
 
-    std::cout << gamepad1.leftY << '\n';
+    std::cout << gamepad1.leftY << ' | ' << gamepad1.rightX << '\n';
 }

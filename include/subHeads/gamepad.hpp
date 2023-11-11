@@ -16,7 +16,7 @@ class Gamepad {
 
         std::array<Button*, 12> ptrButtonsArr = {
             &lb, &lt, &rb, &rt,
-            &dpadUp, &dpadRight, &dpadLeft, &dpadDown,
+            &dpadUp, &dpadDown, &dpadLeft, &dpadRight,
             &x, &b, &y, &a
         };
 
