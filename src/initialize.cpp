@@ -14,7 +14,7 @@ void initialize() {
     odomSys.init();
     
     // Reset catapult encoder position
-    cataMotor.tare_position();
+    cataMotors.tare_position();
     
     // Tuck in wings
     // wings.setPosition(-1, -1);

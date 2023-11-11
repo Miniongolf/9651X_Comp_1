@@ -3,9 +3,9 @@
 Cata::Cata() {}
 
 void Cata::runContinuous(int runtime) {
-    cataMotor.move(127);
+    cataMotors.move(127);
     if (runtime > 0) {
         pros::delay(runtime);
-        cataMotor.move(0);
+        cataMotors.move(0);
     }
 }

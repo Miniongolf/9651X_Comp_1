@@ -6,7 +6,8 @@
 #define RIGHT_1_PORT 1
 #define RIGHT_2_PORT -2
 
-#define CATA_PORT 6
+#define CATA_1_PORT 6
+#define CATA_2_PORT 7
 
 #define BLOCKER_PORT 5
 
@@ -15,7 +16,7 @@
 #define RIGHT_WING_PORT 'B' // Pneumatics port for right wing
 
 // SENSOR PORTS
-// #define IMU_PORT 6
+#define IMU_PORT 6
 
 // MOTORS
 extern pros::Motor left1;
@@ -26,7 +27,9 @@ extern pros::Motor right1;
 extern pros::Motor right2;
 extern pros::MotorGroup rightMotors; // Right side drivetrain motor group
 
-extern pros::Motor cataMotor; // Catapult motor
+extern pros::Motor cataMotor1;
+extern pros::Motor cataMotor2;
+extern pros::MotorGroup cataMotors; // Catapult motor group
 
 extern pros::Motor blockerMotor; // Blocker motor
 
@@ -65,9 +68,10 @@ extern Gamepad gamepad2; // Secondary controller
 // #define PI 3.14159265358979323846 // Literally just pi
 extern const double PI;
 extern const int    NUM_OF_MOTORS;          // Number of motors per side of chassis
-extern const double TURN_CONST;             // Turning speed multiplier
-extern const double CONTROLLER_DEADZONE;    // Controller deadzone (cross)
-extern const int    TICKS_PER_REVOLUTION;      // Number of encoder ticks per full motor revolution
+extern const int    TICKS_PER_REVOLUTION;   // Number of encoder ticks per full motor revolution
 extern const double WHEEL_DIAMETER;         // Wheel diameter (inches)
 extern const double WHEEL_CIRCUMFERENCE;    // Wheel circumference (inches)
 extern const double GEAR_RATIO;             // Wheel to motor gear ratio
+
+extern const double TURN_CONST;             // Turning speed multiplier
+extern const double CONTROLLER_DEADZONE;    // Controller deadzone (cross)

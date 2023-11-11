@@ -23,7 +23,7 @@ void opcontrol() {
 	bool usingAccel = false;
 
 	enum speed_modes {
-		fast = 0,
+		speed = 0,
 		precision
 	};
 
