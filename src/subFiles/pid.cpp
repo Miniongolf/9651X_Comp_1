@@ -1,7 +1,6 @@
 #include "main.h"
 
 PID::PID(double kPin, double kIin, double kDin) {
-    startTime = pros::millis();
     kP = kPin, kI = kIin, kD = kDin;
 }
 

@@ -21,14 +21,54 @@ class PID {
         double error = 0;
         double lastError = 0;
 
-        uint32_t curTime, startTime;
-
     public:
+        /**
+         * PID class constructor
+         * \param kP
+         *        proportional constant multiplier
+         * \param kI
+         *        integral constant multiplier
+         * \param kD
+         *        derivative constant multiplier
+         */
         PID(double kPin, double kIin, double kDin);
+
+        /**
+         * Set new PID constants
+         * \param kP
+         *        proportional constant multiplier
+         * \param kI
+         *        integral constant multiplier
+         * \param kD
+         *        derivative constant multiplier
+         * \returns `None`
+         */
         void setPID(double kPin, double kIin, double kDin);
+
+        /**
+         * Set new target distance
+         * \param target
+         *        new target distance
+         * \returns `None`
+         */
         void setTarget(double targetIn);
+
         // void setReading(double reading);
         // void setOutputRange(double min, double max);
+
+        /**
+         * Calculate instantaneous PID controller output based on error
+         * \param error
+         *        Error between target and current value
+         * \returns chassis motor powers [-1, 1]
+         */
         double calculate(double errorIn);
+
+        /**
+         * Calculate instantaneous proportional controller values based on error
+         * \param error
+         *        Error between target and current value
+         * \returns chassis motor powers [-1, 1]
+         */
         double calculateLinearKP(double errorIn);
 };

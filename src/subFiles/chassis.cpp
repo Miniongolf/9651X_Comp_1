@@ -7,7 +7,6 @@ void Chassis::setPowers(double leftPower, double rightPower) {
     rightMotors.move(rightPower*127);
 }
 
-// Drives a set distance away (in inches) using kP, tolerance of 1
 void Chassis::driveDistance(double targetDist, double kP, bool stops) {
     double error = targetDist, currDist = 0, targetVel;
     
@@ -30,16 +29,20 @@ void Chassis::turnToHeading(double targetAngle, bool stops) {
     while (error > 5) {
         currAngle = odomSys.getHeading();
         error = targetAngle - currAngle;
+        // Implement turning logic
     }
 }
 
-
 void Chassis::turnRelativeAngle(double targetAngle, bool stops) {
-    
+    double error;
+    double startAngle = odomSys.getHeading(), turnedAngle;
 
-
+    while (error > 5) {
+        turnedAngle = odomSys.getHeading() - startAngle;
+        error = startAngle - turnedAngle;
+        // Implement turning logic
+    }
 }
-
 
 void Chassis::brake() {
     leftMotors.move(0);

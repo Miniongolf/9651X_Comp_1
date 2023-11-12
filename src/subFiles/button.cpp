@@ -1,9 +1,7 @@
 #include "main.h"
 
-// Default constructor
 Button::Button() {}
 
-// Sets the button state of pressed, held, and released
 void Button::setStatus(bool isPressed) {
     currState = isPressed;
     

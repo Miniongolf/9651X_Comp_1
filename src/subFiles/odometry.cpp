@@ -1,16 +1,13 @@
 #include "main.h"
 
-// Odometry class constructor
 Odometry::Odometry() {}
 
-// Initializes the odometry system
 void Odometry::init() {
     // imu.reset();
     leftMotors.tare_position();
     rightMotors.tare_position();
 }
 
-// Reset the encoder ticks to 0
 void Odometry::resetEncoderPos() {
     leftMotors.tare_position();
     rightMotors.tare_position();
@@ -38,7 +35,6 @@ std::array<double, 2> Odometry::getEncoderTicks() {
     return {leftAvgPos, rightAvgPos};
 }
 
-// Get forwards distance since last reset
 double Odometry::getLocalDistance(std::array<double, 2> startPoses) {
     std::array<double, 2> encoderPoses = getEncoderTicks();
 
@@ -52,9 +48,8 @@ double Odometry::getLocalDistance(std::array<double, 2> startPoses) {
     return currDist;
 }
 
-// Get global imu angle
 double Odometry::getHeading() {
-    // return imu.get_yaw();
+    return imu.get_yaw();
     return 0;
 }
 

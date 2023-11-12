@@ -5,16 +5,35 @@ class Wings {
         bool leftIsExtended = false, rightIsExtended = false;
 
     public:
-        // Wings class constructor (no args)
+        /**
+         * Wings class constructor (no args)
+         * \param None
+         */
         Wings();
 
-        // Returns whether or not each piston is extended
+        /**
+         * Returns the piston positions
+         * \param None
+         * \returns Wings positions as bool (`leftIsExtended`, `rightIsExtended`)
+         */
         std::array<bool,2> getStatus();
 
-        // Sets the position for pneumatics
-        // 1 = extend | -1 = retract | 0 = stay
+        /**
+         * Sets the position for pneumatics
+         * \param leftPos
+         *        (1 = extend | -1 = retract | 0 = stay)
+         * \param rightPos
+         *        (1 = extend | -1 = retract | 0 = stay)
+         * \returns `None`
+         */
         void setPosition(int leftPos, int rightPos);
 
-        /** Nxunctionally the same as defaulting right param to left */
+        /**
+         * Sets the position for the pneumatics
+         * \param bothPos
+         *        1 = extend | -1 = retract | 0 = stay
+         * \returns `None`
+         * \overload setPosition(leftPos, rightPos)
+         */
         void setPosition(int bothPos);
 };

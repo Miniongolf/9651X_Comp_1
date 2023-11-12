@@ -9,3 +9,7 @@ void Cata::runContinuous(int runtime) {
         cataMotors.move(0);
     }
 }
+
+void Cata::stop() {
+    cataMotors.move(0);
+}
