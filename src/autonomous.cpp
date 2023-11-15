@@ -11,7 +11,8 @@
  * from where it left off.
  */
 void autonomous() {
-    
+    pros::lcd::print(1, "auton");
+
     chassis.driveDistance(12, 0.75, true);
 
     // chassis.turnToHeading(90);
@@ -19,6 +20,8 @@ void autonomous() {
     // double pidParams[4] = {10.0, 0.5, 0.0, 0.0};
     // double* ptrPidParams = pidParams;
     // pros::Task pid_task(pid_task_fn, (void*)ptrPidParams);
+
+    opcontrol();
 }
 
 

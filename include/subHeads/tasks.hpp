@@ -1,8 +1,5 @@
 #include "main.h"
 
-// Random test task function lol
-extern void my_task_fn(void* param);
-
 /**
  * Task function to get controller inputs
  * \param param (void*) put a NULL pointer here or smth idk

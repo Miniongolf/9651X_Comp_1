@@ -21,6 +21,7 @@ void Chassis::driveDistance(double targetDist, double kP, bool stops) {
         error = targetDist - currDist;
         targetVel = kP * (error - currDist);
         targetVel = std::clamp(targetVel, -1.0, 1.0);
+        std::cout << targetVel;
         chassis.setPowers(targetVel, targetVel);
     }
 

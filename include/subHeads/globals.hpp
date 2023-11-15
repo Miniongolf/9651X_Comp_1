@@ -2,22 +2,22 @@
 
 /* #region define ports */
 // MOTOR PORTS
-#define LEFT_1_PORT -3
-#define LEFT_2_PORT 4
-#define RIGHT_1_PORT 1
-#define RIGHT_2_PORT -2
+#define LEFT_1_PORT 13
+#define LEFT_2_PORT 16
+#define RIGHT_1_PORT -19
+#define RIGHT_2_PORT -17
 
-#define CATA_1_PORT 6
-#define CATA_2_PORT 7
+#define CATA_1_PORT 4
+#define CATA_2_PORT -5
 
-#define BLOCKER_PORT 5
+// #define BLOCKER_PORT 5
 
 // PNEUMATICS PORTS
 #define LEFT_WING_PORT 'A' // Pneumatics port for left wing
 #define RIGHT_WING_PORT 'B' // Pneumatics port for right wing
 
 // SENSOR PORTS
-#define IMU_PORT 8
+#define IMU_PORT 18
 #define VISION_PORT 9
 /* #endregion define ports */
 
@@ -45,6 +45,7 @@ extern pros::ADIDigitalOut leftWing; // Pneumatics for left wing
 extern pros::ADIDigitalOut rightWing; // Pneumatics for right wing
 
 // SUBSYSTEMS
+extern Cata cata;
 extern Wings wings;
 extern Chassis chassis;
 extern Odometry odomSys;

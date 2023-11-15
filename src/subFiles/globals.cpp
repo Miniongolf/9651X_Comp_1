@@ -24,6 +24,7 @@ pros::ADIDigitalOut leftWing(LEFT_WING_PORT);   // Left wing piston
 pros::ADIDigitalOut rightWing(RIGHT_WING_PORT); // Right wing piston
 
 // SUBSYSTEMS
+Cata cata;        // Catapult wrapper
 Wings wings;      // Wings wrapper
 Chassis chassis;  // Chassis wrapper
 Odometry odomSys; // Odometry system

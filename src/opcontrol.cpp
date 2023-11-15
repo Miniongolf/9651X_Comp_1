@@ -14,8 +14,14 @@
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Task inputs_task(inputs_task_fn, NULL, "Gamepad Input Task");
     pros::lcd::print(1, "opmode");
+
+	pros::Task inputs_task(
+		inputs_task_fn,
+		NULL,
+		TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT,
+		"Gamepad Input Task"
+	);
 
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;
@@ -30,8 +36,7 @@ void opcontrol() {
 	speed_modes speedMode;
 
 	while (true) {
-		// gamepad1.getInputs();
-
+		// Pressed = precision, released = speed
 		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
 
 		leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
@@ -51,20 +56,16 @@ void opcontrol() {
 			rightVel /= 2;
 		}
 
-		std::cout << leftVel << ' ' << rightVel << '\n';
-
 		chassis.setPowers(leftVel, rightVel);
 
 		if (gamepad1.a.pressed) {
 			autonomous();
 		}
 
-		// if (gamepad1.dpadUp.held) {
-		// 	blockerMotor.move(-127);
-		// } else if (gamepad1.dpadDown.held) {
-		// 	blockerMotor.move(127);
-		// }
-
+		if (gamepad1.rt.held) {
+			cata.runContinuous();
+		}
+		
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
 	}
 }
