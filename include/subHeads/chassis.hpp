@@ -38,7 +38,7 @@ class Chassis {
          *        Stop at heading or keep going
          * \note Blocking
          */
-        void turnToHeading(double targetHeading, bool stops = true);
+        void turnToHeading(double targetHeading, double kP, bool stops = true);
 
         /** Turns a set angle from starting position
          * \param targetAngle
@@ -47,7 +47,7 @@ class Chassis {
          *        Stop at end or keep going
          * \note Blocking
          */
-        void turnRelativeAngle(double targetAngle, bool stops = true);
+        void turnRelativeAngle(double targetAngle, double kP, bool stops = true);
         
         /** Stops all motors
          * \param None
