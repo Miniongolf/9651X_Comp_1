@@ -24,5 +24,5 @@ void Gamepad::getInputs() {
         (*ptrButtonsArr[i]).setStatus(controller.get_digital(button));
     }
 
-    std::cout << gamepad1.leftY << ' | ' << gamepad1.rightX << '\n';
+    std::cout << gamepad1.leftY << " | " << gamepad1.rightX << '\n';
 }
