@@ -9,3 +9,7 @@ void inputs_task_fn(void* param) {
 	gamepad2.getInputs();
 	pros::delay(20);
 }
+
+void chassis_task_fn(void* param) {
+    
+}

@@ -11,7 +11,7 @@ pros::MotorGroup rightMotors({right1, right2});
 
 pros::Motor cataMotor1(CATA_1_PORT, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_DEGREES);
 pros::Motor cataMotor2(CATA_2_PORT, pros::E_MOTOR_GEAR_RED, false, pros::E_MOTOR_ENCODER_DEGREES);
-pros::MotorGroup rightMotors({cataMotor1, cataMotor2});
+pros::MotorGroup cataMotors({cataMotor1, cataMotor2});
 
 // pros::Motor blockerMotor(BLOCKER_PORT, pros::E_MOTOR_GEAR_GREEN, false, pros::E_MOTOR_ENCODER_DEGREES);
 
@@ -33,13 +33,12 @@ Gamepad gamepad1(CONTROLLER_MASTER);  // Primary controller
 Gamepad gamepad2(CONTROLLER_PARTNER); // Secondary controller
 
 // CONSTANTS
-
 const double PI = 3.141592653589793;
 const int    NUM_OF_MOTORS          = leftMotors.size();
 const int    TICKS_PER_REVOLUTION   = 360;
 const double WHEEL_DIAMETER         = 3.25;
 const double WHEEL_CIRCUMFERENCE    = PI * WHEEL_DIAMETER;
-const double GEAR_RATIO             = 0.667; // 2/3;
+const double GEAR_RATIO             = 0.667;
 
 const double TURN_CONST             = 0.75;
 const double CONTROLLER_DEADZONE    = 0.1;
