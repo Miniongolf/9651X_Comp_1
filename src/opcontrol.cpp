@@ -53,8 +53,8 @@ std::array<double, 2> processSticks() {
 void opcontrol() {
     pros::lcd::print(1, "opmode");
 
-	pros::Task inputs_task(inputs_task_fn, "Gamepad Input Task");
-	pros::Task chassis_task(chassis_task_fn, "Chassis Task");
+	pros::Task inputs_task(inputs_task_fn, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Gamepad Input Task");
+	pros::Task chassis_task(chassis_task_fn, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Chassis Task");
 
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;

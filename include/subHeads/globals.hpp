@@ -2,10 +2,10 @@
 
 /* #region define ports */
 // MOTOR PORTS
-#define LEFT_1_PORT 13
-#define LEFT_2_PORT 16
-#define RIGHT_1_PORT -19
-#define RIGHT_2_PORT -17
+#define LEFT_1_PORT -13
+#define LEFT_2_PORT -16
+#define RIGHT_1_PORT 19
+#define RIGHT_2_PORT 17
 
 #define CATA_1_PORT 4
 #define CATA_2_PORT -5
