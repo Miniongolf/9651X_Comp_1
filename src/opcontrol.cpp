@@ -1,5 +1,42 @@
 #include "main.h"
 
+std::array<double, 2> processSticks() {
+	enum speed_modes {
+		speed = 0,
+		precision
+	};
+
+	speed_modes speedMode;
+
+	double leftVel, rightVel, highVel;
+	double targetLeftVel = 0, targetRightVel = 0;
+
+	leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
+	rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
+
+	// Pressed = precision, released = speed
+	speedMode = static_cast<speed_modes> (gamepad1.rb.held);
+
+	leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
+	rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
+	
+	highVel = std::max(fabs(leftVel), fabs(rightVel));
+	
+	// Normalize to [-1, 1]
+	if (highVel > 1 || speedMode == precision) {
+		leftVel /= highVel;
+		rightVel /= highVel;
+	}
+
+	// Slow down the chassis to half speed if drive is on precision mode
+	if (speedMode == precision) {
+		leftVel /= 2;
+		rightVel /= 2;
+	}
+
+	return {leftVel, rightVel};
+}
+
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -16,12 +53,8 @@
 void opcontrol() {
     pros::lcd::print(1, "opmode");
 
-	pros::Task inputs_task(
-		inputs_task_fn,
-		NULL,
-		TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT,
-		"Gamepad Input Task"
-	);
+	pros::Task inputs_task(inputs_task_fn, "Gamepad Input Task");
+	pros::Task chassis_task(chassis_task_fn, "Chassis Task");
 
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;
@@ -36,25 +69,8 @@ void opcontrol() {
 	speed_modes speedMode;
 
 	while (true) {
-		// Pressed = precision, released = speed
-		speedMode = static_cast<speed_modes> (gamepad1.rb.held);
-
-		leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
-		rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
-		
-		highVel = std::max(fabs(leftVel), fabs(rightVel));
-		
-		// Normalize to [-1, 1]
-		if (highVel > 1 || speedMode == precision) {
-			leftVel /= highVel;
-			rightVel /= highVel;
-		}
-
-		// Slow down the chassis to half speed if drive is on precision mode
-		if (speedMode == precision) {
-			leftVel /= 2;
-			rightVel /= 2;
-		}
+		std::array<double, 2>vels = processSticks();
+		double leftVel = vels[0], rightVel = vels[1];
 
 		chassis.setPowers(leftVel, rightVel);
 
@@ -62,7 +78,7 @@ void opcontrol() {
 			autonomous();
 		}
 
-		if (gamepad1.rt.held) {
+		if (gamepad1.rt) {
 			cata.runContinuous();
 		}
 		

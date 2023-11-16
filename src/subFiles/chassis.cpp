@@ -2,7 +2,12 @@
 
 Chassis::Chassis() {}
 
-void Chassis::setPowers(double leftPower, double rightPower) {
+void Chassis::setPowers(double leftPowerIn, double rightPowerIn) {
+    chassis.leftPower = leftPowerIn;
+    chassis.rightPower = rightPowerIn;
+}
+
+void Chassis::drivePowers() {
     leftMotors.move(leftPower*127);
     rightMotors.move(rightPower*127);
 }

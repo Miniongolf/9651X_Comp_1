@@ -8,17 +8,26 @@ class Button {
         // Button statuses
         bool pressed, released, held;
         
-        /** Button class constructor
+        /**
+         * Button class constructor
          * \param None
          * \note Should only be used by gamepad class and not in loose code
          */
         Button();
 
-        /** Sets the button state of pressed, held, and released
+        /** 
+         * Sets the button state of pressed, held, and released
          * \param isPressed
          *        from gamepad.get_digital()
          * \returns none
          * \note Should only be used in gamepad class, not for general code.
          */
         void setStatus(bool isPressed);
+
+        /**
+         * Allows the object to be cast to boolean
+         * Returns true if the button is held, false otherwise
+         * Equivalent to `{gamepad}.{button}.held`
+         */
+        explicit operator bool() const {return held;};
 };

@@ -6,6 +6,8 @@ class Chassis {
         // Chassis position
         RobotPosition pos{0, 0, 0};
 
+        double leftPower, rightPower;
+
         Chassis();
 
         /** Sets the drivetrain powers for left and right side
@@ -16,8 +18,16 @@ class Chassis {
          * 
          * \returns none
          */
-        void setPowers(double leftPower, double rightPower);
+        void setPowers(double leftPowerIn, double rightPowerIn);
         
+        /** Drives the chassis using the leftPower and rightPower properties
+         * \param None
+         * 
+         * \returns `None`
+         * \note Should only be called in chassis drive task.
+         */
+        void drivePowers();
+
         /** Drives a set linear distance using kP
          * \param targetDist
          *        Distance to drive (in inches)
