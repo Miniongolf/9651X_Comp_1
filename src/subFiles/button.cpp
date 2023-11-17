@@ -26,7 +26,7 @@ void Button::setStatus(bool isPressed) {
         released = true;
     }
     
-    // Released
+    // Not pressed
     else {
         pressed = false;
         held = false;
@@ -35,5 +35,11 @@ void Button::setStatus(bool isPressed) {
 
     // Update for next iteration
     prevState = currState;
+}
+
+void Button::disable() {
+    pressed = false;
+    held = false;
+    released = false;
 }
 

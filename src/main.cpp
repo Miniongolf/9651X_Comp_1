@@ -21,7 +21,9 @@ void on_center_button() {
  * the VEX Competition Switch, following either autonomous or opcontrol. When
  * the robot is enabled, this task will exit.
  */
-void disabled() {}
+void disabled() {
+	pros::lcd::set_text(1, "Disabled");
+}
 
 /**
  * Runs after initialize(), and before autonomous when connected to the Field

@@ -19,10 +19,19 @@ class Button {
          * Sets the button state of pressed, held, and released
          * \param isPressed
          *        from gamepad.get_digital()
-         * \returns none
+         * \returns `None`
          * \note Should only be used in gamepad class, not for general code.
          */
         void setStatus(bool isPressed);
+
+        /**
+         * Sets the button states to false
+         * \param None
+         * \returns `None`
+         * \note Should only be used by gamepad class, not for general code.
+         *       To be used when running semi autons when gamepad is disabled.
+         */
+        void disable();
 
         /**
          * Allows the object to be cast to boolean

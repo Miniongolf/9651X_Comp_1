@@ -75,11 +75,14 @@ void opcontrol() {
 		chassis.setPowers(leftVel, rightVel);
 
 		if (gamepad1.a.pressed) {
+			std::cout << "a press\n";
 			autonomous();
 		}
 
 		if (gamepad1.rt || gamepad1.rightX > 0.5) {
 			cata.runContinuous();
+		} else {
+			cata.stop();
 		}
 		
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
