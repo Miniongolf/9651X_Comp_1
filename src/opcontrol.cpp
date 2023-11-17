@@ -79,9 +79,13 @@ void opcontrol() {
 			autonomous();
 		}
 
-		if (gamepad1.rt || gamepad1.rightX > 0.5) {
+		if (gamepad1.rt || gamepad1.rightY > 0.5) {
 			cata.runContinuous();
 		} else {
+			cata.stop();
+		}
+
+		if (gamepad1.rightY < 0.5) {
 			cata.stop();
 		}
 		
