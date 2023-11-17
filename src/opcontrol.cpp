@@ -78,8 +78,12 @@ void opcontrol() {
 			autonomous();
 		}
 
-		if (gamepad1.rt || gamepad1.rightX > 0.5) {
+		if (gamepad1.rt || gamepad1.rightY > 0.5) {
 			cata.runContinuous();
+		}
+
+		if (gamepad1.rightY < 0.5) {
+			cata.stop();
 		}
 		
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
