@@ -4,6 +4,7 @@ class Gamepad {
     private:
         pros::controller_id_e_t controllerID;
 
+        /*
         std::array<pros::controller_analog_e_t, 4> numToStick = {
             ANALOG_LEFT_X,
             ANALOG_LEFT_Y,
@@ -40,6 +41,7 @@ class Gamepad {
             DIGITAL_Y,
             DIGITAL_A
         };
+        */
 
         // Pointer array for joysticks
         std::array<double*, 4> ptrSticksArr = {
@@ -61,9 +63,9 @@ class Gamepad {
 
     public:
         double leftX, leftY, rightX, rightY;
-        Button a, b, x, y;
-        Button dpadUp, dpadRight, dpadLeft, dpadDown;
         Button lb, lt, rb, rt;
+        Button dpadUp, dpadDown, dpadLeft, dpadRight;
+        Button x, b, y, a;
 
         /** Gamepad class constructor
          * \param id
