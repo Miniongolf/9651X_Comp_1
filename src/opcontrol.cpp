@@ -79,7 +79,7 @@ void opcontrol() {
 			autonomous();
 		}
 
-		if (gamepad1.rt.held) { // gamepad1.rt instead of gamepad1.rt.held
+		if (gamepad1.rt.held || gamepad1.y) { // gamepad1.rt instead of gamepad1.rt.held
 			cata.runContinuous();
 		} else {
 			cata.stop();

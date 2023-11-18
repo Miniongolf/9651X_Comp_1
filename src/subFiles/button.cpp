@@ -43,3 +43,7 @@ void Button::disable() {
     released = false;
 }
 
+Button::operator bool() const {
+    return held;
+}
+

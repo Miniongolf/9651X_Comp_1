@@ -34,9 +34,9 @@ class Button {
         void disable();
 
         /**
-         * Allows the object to be cast to boolean
-         * Returns true if the button is held, false otherwise
-         * Equivalent to `{gamepad}.{button}.held`
+         * Casts button to boolean.
+         * Returns true if the button is held, false otherwise.
+         * \note Equivalent to `{gamepad}.{button}.held`
          */
-        explicit operator bool() const {return held;};
+        explicit operator bool() const;
 };
