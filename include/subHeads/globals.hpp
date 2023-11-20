@@ -3,23 +3,23 @@
 
 /* #region define ports */
 // MOTOR PORTS
-#define LEFT_1_PORT -13
-#define LEFT_2_PORT -14
-#define RIGHT_1_PORT 19
-#define RIGHT_2_PORT 17
+#define LEFT_1_PORT -11
+#define LEFT_2_PORT -2
+#define RIGHT_1_PORT 12
+#define RIGHT_2_PORT 13
 
 #define CATA_1_PORT 4
-#define CATA_2_PORT -5
+#define CATA_2_PORT -1
 
 // #define BLOCKER_PORT 5
 
 // PNEUMATICS PORTS
 #define LEFT_WING_PORT 'A' // Pneumatics port for left wing
-#define RIGHT_WING_PORT 'B' // Pneumatics port for right wing
+#define RIGHT_WING_PORT 'H' // Pneumatics port for right wing
 
 // SENSOR PORTS
-#define IMU_PORT 18
-#define VISION_PORT 9
+#define IMU_PORT 17
+// #define VISION_PORT 9
 /* #endregion define ports */
 
 // MOTORS
