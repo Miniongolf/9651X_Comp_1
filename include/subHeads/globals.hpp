@@ -1,3 +1,4 @@
+#pragma once
 #include "main.h"
 
 /* #region define ports */

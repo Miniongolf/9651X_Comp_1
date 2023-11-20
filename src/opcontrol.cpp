@@ -1,40 +1,22 @@
 #include "main.h"
 
+enum speed_modes {
+	speed = 0,
+	precision
+};
+
+speed_modes speedMode;
+
+/**
+ * Processes the inputs from the gamepad sticks and converts them to movement powers. 
+ */
 std::array<double, 2> processSticks() {
-	enum speed_modes {
-		speed = 0,
-		precision
-	};
+	double forwardsVel, turnVel;
 
-	speed_modes speedMode;
+	forwardsVel = gamepad1.leftY;
+	turnVel = gamepad1.rightX*TURN_CONST;
 
-	double leftVel, rightVel, highVel;
-	double targetLeftVel = 0, targetRightVel = 0;
-
-	leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
-	rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
-
-	// Pressed = precision, released = speed
-	speedMode = static_cast<speed_modes> (gamepad1.rb.held);
-
-	leftVel = gamepad1.leftY + (gamepad1.rightX*TURN_CONST);
-	rightVel = gamepad1.leftY - (gamepad1.rightX*TURN_CONST);
-	
-	highVel = std::max(fabs(leftVel), fabs(rightVel));
-	
-	// Normalize to [-1, 1]
-	if (highVel > 1 || speedMode == precision) {
-		leftVel /= highVel;
-		rightVel /= highVel;
-	}
-
-	// Slow down the chassis to half speed if drive is on precision mode
-	if (speedMode == precision) {
-		leftVel /= 2;
-		rightVel /= 2;
-	}
-
-	return {leftVel, rightVel};
+	return {forwardsVel, turnVel};
 }
 
 /**
@@ -56,16 +38,22 @@ void opcontrol() {
 	// Start tasks
     startAllTasks();
 
-	double leftVel, rightVel, highVel;
-	double targetLeftVel = 0, targetRightVel = 0;
-
-	bool usingAccel = false;
+	double forwardsVel, turnVel;
+	double highVel, leftVel, rightVel;
 
 	while (true) {
 		std::array<double, 2>vels = processSticks();
-		double leftVel = vels[0], rightVel = vels[1];
+		forwardsVel = vels[0], turnVel = vels[1];
 
-		chassis.setPowers(leftVel, rightVel);
+		// Pressed = precision, released = speed
+		if (gamepad1.rb.held) {speedMode = precision;}
+		else {speedMode = speed;}
+
+		// Slow down the chassis to half speed if drive is on precision mode
+		if (speedMode == precision) {
+			forwardsVel /= 2;
+			turnVel /= 2;
+		}
 
 		if (gamepad1.a.pressed) {
 			std::cout << "a press\n";
@@ -73,16 +61,24 @@ void opcontrol() {
 			autonomous();
 		}
 
-		if (gamepad1.rt.held || gamepad1.y) { // gamepad1.rt instead of gamepad1.rt.held
-			cata.runContinuous();
-		} else {
-			cata.stop();
+		// gamepad1.rt instead of gamepad1.rt.held
+		if (gamepad1.rt.held || gamepad1.y) {cata.runContinuous();}
+		else {cata.stop();}
+		
+
+		leftVel = forwardsVel + turnVel;
+		rightVel = forwardsVel - turnVel;
+		highVel = std::max(fabs(leftVel), fabs(rightVel));
+
+		// Normalize to [-1, 1]
+		if (highVel > 1) {
+			leftVel /= highVel;
+			rightVel /= highVel;
 		}
 
-		if (gamepad1.rightY < 0.5) {
-			cata.stop();
-		}
-		
+		// Update the chassis's member var powers
+		chassis.setPowers(leftVel, rightVel);
+
 		pros::delay(20); // Delay to prevent from overdrawing cpu resources
 	}
 }

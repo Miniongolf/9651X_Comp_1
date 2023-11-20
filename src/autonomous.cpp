@@ -16,6 +16,8 @@ void autonomous() {
 	// Start tasks
     startAllTasks();
 
+    pros::delay(1000);
+
     chassis.driveDistance(12, 0.75, true);
 
     // chassis.turnToHeading(90);
