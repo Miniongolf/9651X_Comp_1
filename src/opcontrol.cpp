@@ -51,22 +51,15 @@ std::array<double, 2> processSticks() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-    pros::lcd::print(1, "opmode");
+    pros::lcd::print(1, "teleop");
 
-	pros::Task inputs_task(inputs_task_fn, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Gamepad Input Task");
-	pros::Task chassis_task(chassis_task_fn, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Chassis Task");
+	// Start tasks
+    startAllTasks();
 
 	double leftVel, rightVel, highVel;
 	double targetLeftVel = 0, targetRightVel = 0;
 
 	bool usingAccel = false;
-
-	enum speed_modes {
-		speed = 0,
-		precision
-	};
-
-	speed_modes speedMode;
 
 	while (true) {
 		std::array<double, 2>vels = processSticks();
@@ -76,6 +69,7 @@ void opcontrol() {
 
 		if (gamepad1.a.pressed) {
 			std::cout << "a press\n";
+			killAllTasks();
 			autonomous();
 		}
 

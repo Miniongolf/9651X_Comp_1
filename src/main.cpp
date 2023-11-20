@@ -23,6 +23,7 @@ void on_center_button() {
  */
 void disabled() {
 	pros::lcd::set_text(1, "Disabled");
+	killAllTasks();
 }
 
 /**
