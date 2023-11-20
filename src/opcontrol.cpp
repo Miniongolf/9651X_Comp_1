@@ -46,7 +46,7 @@ void opcontrol() {
 		forwardsVel = vels[0], turnVel = vels[1];
 
 		// Pressed = precision, released = speed
-		if (gamepad1.rb.held) {speedMode = precision;}
+		if (gamepad1.rb) {speedMode = precision;}
 		else {speedMode = speed;}
 
 		// Slow down the chassis to half speed if drive is on precision mode
@@ -61,10 +61,11 @@ void opcontrol() {
 			autonomous();
 		}
 
-		// gamepad1.rt instead of gamepad1.rt.held
-		if (gamepad1.rt.held || gamepad1.y) {cata.runContinuous();}
+		if (gamepad1.y) {cata.runContinuous();}
 		else {cata.stop();}
 		
+		if (gamepad1.lt) {wings.setPosition(1,1);}
+		else {wings.setPosition(0,0);}
 
 		leftVel = forwardsVel + turnVel;
 		rightVel = forwardsVel - turnVel;

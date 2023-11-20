@@ -16,7 +16,11 @@ void autonomous() {
 	// Start tasks
     startAllTasks();
 
+    wings.setPosition(1,1);
+
     pros::delay(1000);
+
+    wings.setPosition(0,0);
 
     chassis.driveDistance(12, 0.75, true);
 
