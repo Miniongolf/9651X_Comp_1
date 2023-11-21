@@ -20,9 +20,9 @@ void autonomous() {
 
     pros::delay(1000);
 
-    wings.setPosition(0,0);
+    wings.setPosition(-1,-1);
 
-    chassis.driveDistance(12, 0.75, true);
+    // chassis.driveDistance(12, 0.75, true);
 
     // chassis.turnToHeading(90);
 

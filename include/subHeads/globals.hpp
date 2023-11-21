@@ -15,7 +15,7 @@
 
 // PNEUMATICS PORTS
 #define LEFT_WING_PORT 'A' // Pneumatics port for left wing
-#define RIGHT_WING_PORT 'H' // Pneumatics port for right wing
+#define RIGHT_WING_PORT 'G' // Pneumatics port for right wing
 
 // SENSOR PORTS
 #define IMU_PORT 17

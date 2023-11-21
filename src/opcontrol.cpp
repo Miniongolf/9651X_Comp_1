@@ -65,7 +65,7 @@ void opcontrol() {
 		else {cata.stop();}
 		
 		if (gamepad1.lt) {wings.setPosition(1,1);}
-		else {wings.setPosition(0,0);}
+		else {wings.setPosition(-1,-1);}
 
 		leftVel = forwardsVel + turnVel;
 		rightVel = forwardsVel - turnVel;

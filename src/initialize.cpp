@@ -10,6 +10,8 @@ void initialize() {
     // Initialize brain screen display
     pros::lcd::initialize();
 
+    cataMotors.set_brake_modes(MOTOR_BRAKE_HOLD);
+
     // Initialize odometry
     odomSys.init();
     
