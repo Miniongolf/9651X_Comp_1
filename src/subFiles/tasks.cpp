@@ -22,10 +22,14 @@ pros::Task chassis_task(chassis_task_fn, NULL, TASK_PRIORITY_DEFAULT, TASK_STACK
 
 void killAllTasks() {
     inputs_task.suspend();
+    gamepad1.disable();
+    gamepad2.disable();
     chassis_task.suspend();
 }
 
 void startAllTasks() {
     inputs_task.resume();
+    gamepad1.resume();
+    gamepad2.resume();
     chassis_task.resume();
 }

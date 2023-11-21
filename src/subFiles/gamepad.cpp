@@ -7,6 +7,13 @@ Gamepad::Gamepad(pros::controller_id_e_t id) {
 void Gamepad::getInputs() {
     pros::Controller controller(controllerID);
 
+    // Guard clause against a disabled controller (during auton and semi-autons)
+    // Use the B button to cancel semi autons
+    if (disabled) {
+        b.setStatus(controller.get_digital(DIGITAL_B));
+        return;
+    }
+
     // for (int i = 0; i < 4; i++) {
     //     *ptrSticksArr[i] = controller.get_analog(numToStick[i])/127.0;
     //     if (fabs(*ptrSticksArr[i]) <= CONTROLLER_DEADZONE) {*ptrSticksArr[i] = 0;}
@@ -36,6 +43,8 @@ void Gamepad::getInputs() {
 void Gamepad::disable() {
     pros::Controller controller(controllerID);
 
+    disabled = true;
+
     for (int i = 0; i < 4; i++) {
         pros::controller_analog_e_t stick = static_cast<pros::controller_analog_e_t>(i);
         *ptrSticksArr[i] = 0;
@@ -46,4 +55,8 @@ void Gamepad::disable() {
         pros::controller_digital_e_t button = static_cast<pros::controller_digital_e_t>(i+6);
         (*ptrButtonsArr[i]).disable();
     }
+}
+
+void Gamepad::resume() {
+    disabled = false;
 }

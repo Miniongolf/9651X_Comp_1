@@ -68,6 +68,8 @@ class Gamepad {
         Button dpadUp, dpadDown, dpadLeft, dpadRight;
         Button x, b, y, a;
 
+        bool disabled;
+
         /** Gamepad class constructor
          * \param id
          *        MASTER or PARTNER
@@ -87,4 +89,11 @@ class Gamepad {
          * \note Used when running semi auton
          */
         void disable();
+
+        /** 
+         * Sets disabled to false
+         * \param None
+         * \note Used every time we cancel or end auton/semiauton
+         */
+        void resume();
 };
