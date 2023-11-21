@@ -22,7 +22,7 @@ void autonomous() {
 
     wings.setPosition(-1,-1);
 
-    // chassis.driveDistance(12, 0.75, true);
+    chassis.driveDistance(12, 0.75, true);
 
     // chassis.turnToHeading(90);
 
